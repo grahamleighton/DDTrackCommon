@@ -12,6 +12,7 @@ namespace DDTrackPlusCommon.Models
         /// Gets or sets the Customer Account Number.
         /// </summary>
         [Required]
+        [StringLength(10,ErrorMessage ="Account number should be no more than 10 characters")]
         public String AccountNumber { get; set; }
 
         /// <summary>

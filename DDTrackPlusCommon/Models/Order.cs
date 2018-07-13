@@ -25,9 +25,7 @@ namespace DDTrackPlusCommon.Models
         [Required]
   
         public Supplier SupplierDetails { get; set; }
-        [Required]
       
-        public string InvoiceNumber { get; set;  }
 
         /// <summary>
         /// Gets or sets the date the order was placed.
@@ -85,6 +83,8 @@ namespace DDTrackPlusCommon.Models
         /// <summary>
         /// Gets or sets the Company Details used internally by FGH.
         /// </summary>
+        /// 
+        [Required]
         public CompanyDetails Company;
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace DDTrackPlusCommon.Models
         public string ToJSON()
         {
             string JSON = String.Format("Order @@<@ \"InvoiceNumber: \"{0}\" @@>@",
-                    InvoiceNumber);
+                    OrderNumber);
             JSON = JSON.Replace("@@<@", "{");
             JSON = JSON.Replace("@@>@", "}");
 
@@ -135,6 +135,17 @@ namespace DDTrackPlusCommon.Models
             CarrierID = 0;
             CustomerDeliveryID = 0;
             ID = 0;
+        }
+
+        public void Reset()
+        {
+            SupplierID = 0;
+            CompanyID = 0;
+            FGHItemID = 0;
+            CarrierID = 0;
+            CustomerDeliveryID = 0;
+            ID = 0;
+
         }
         public bool isValid()
         {

@@ -15,11 +15,14 @@ namespace DDTrackPlusCommon.Models
         /// Gets or sets the Company Code used internally by FGH.
         /// </summary>
         [Required]
+        [MaxLength(4)]
         public String CompanyCode { get; set; }
 
         /// <summary>
         /// Gets or sets the Company Name.
         /// </summary>
+        [MaxLength(60)]
+        [Required]
         public String CompanyName { get; set; }
 
         /// <summary>
